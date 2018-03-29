@@ -1,0 +1,17 @@
+*.iml
+.gradle
+/local.properties
+/.idea/workspace.xml
+/.idea/libraries
+.DS_Store
+/build
+/captures
+.externalNativeBuild
+
+<<<<<<< HEAD
+gradle/wrapper/gradle-wrapper\.properties
+=======
+\.idea/misc\.xml
+>>>>>>> develop
+
+\.idea/caches/build_file_checksums\.ser

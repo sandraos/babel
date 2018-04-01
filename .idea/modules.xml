@@ -2,7 +2,8 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/SinchPstn.iml" filepath="$PROJECT_DIR$/SinchPstn.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Babel.iml" filepath="$PROJECT_DIR$/Babel.iml" />
+      <module fileurl="file://C:\Users\Salim\Documents\Repos\Babel\SinchPstn.iml" filepath="C:\Users\Salim\Documents\Repos\Babel\SinchPstn.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
     </modules>
   </component>

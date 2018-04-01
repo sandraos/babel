@@ -182,7 +182,7 @@ public class CallActivity extends AppCompatActivity implements View.OnClickListe
                 }
                 break;
             case R.id.speakerButton:
-                audioController.mute();
+                //audioController.mute();
                 new VoiceInputTask().execute();
                 break;
         }
@@ -208,35 +208,6 @@ public class CallActivity extends AppCompatActivity implements View.OnClickListe
             }
 
             return null;
-        }
-    }
-
-    private class SinchCallListener implements CallListener
-    {
-        @Override
-        public void onCallEnded(Call endedCall)
-        {
-            call = null;
-            callButton.setText("Call");
-            setVolumeControlStream(AudioManager.USE_DEFAULT_STREAM_TYPE);
-        }
-
-        @Override
-        public void onCallEstablished(Call establishedCall)
-        {
-            setVolumeControlStream(AudioManager.STREAM_VOICE_CALL);
-        }
-
-        @Override
-        public void onCallProgressing(Call progressingCall)
-        {
-            // intentionally empty
-        }
-
-        @Override
-        public void onShouldSendPushNotification(Call call, List<PushPair> pushPairs)
-        {
-            // intentionally empty
         }
     }
 
@@ -318,6 +289,35 @@ public class CallActivity extends AppCompatActivity implements View.OnClickListe
     {
         textToSpeech.setLanguage(loc);
         textToSpeech.speak(text, TextToSpeech.QUEUE_FLUSH, null, "");
+    }
+
+    private class SinchCallListener implements CallListener
+    {
+        @Override
+        public void onCallEnded(Call endedCall)
+        {
+            call = null;
+            callButton.setText("Call");
+            setVolumeControlStream(AudioManager.USE_DEFAULT_STREAM_TYPE);
+        }
+
+        @Override
+        public void onCallEstablished(Call establishedCall)
+        {
+            setVolumeControlStream(AudioManager.STREAM_VOICE_CALL);
+        }
+
+        @Override
+        public void onCallProgressing(Call progressingCall)
+        {
+            // intentionally empty
+        }
+
+        @Override
+        public void onShouldSendPushNotification(Call call, List<PushPair> pushPairs)
+        {
+            // intentionally empty
+        }
     }
 }
 

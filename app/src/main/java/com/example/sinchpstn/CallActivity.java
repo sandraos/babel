@@ -172,7 +172,7 @@ public class CallActivity extends AppCompatActivity implements View.OnClickListe
                 if (call == null)
                 {
                     sb.append(callState.getText().toString());
-                    callButton.setText("Hang Up");
+                    callButton.setText(R.string.hangup);
                     call = sinchClient.getCallClient().callPhoneNumber(sb.toString());
                     call.addCallListener(new SinchCallListener());
                 }
@@ -297,7 +297,7 @@ public class CallActivity extends AppCompatActivity implements View.OnClickListe
         public void onCallEnded(Call endedCall)
         {
             call = null;
-            callButton.setText("Call");
+            callButton.setText(R.string.call);
             setVolumeControlStream(AudioManager.USE_DEFAULT_STREAM_TYPE);
         }
 

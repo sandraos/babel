@@ -2,6 +2,7 @@ package com.example.sinchpstn;
 
 import android.Manifest;
 import android.content.ActivityNotFoundException;
+import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.media.AudioManager;
@@ -190,6 +191,13 @@ public class CallActivity extends AppCompatActivity implements View.OnClickListe
 
     private class VoiceInputTask extends AsyncTask<String, Void, Void>
     {
+        Context context;
+
+        private VoiceInputTask(Context context)
+        {
+            this.context = context.getApplicationContext();
+        }
+
         @Override
         protected Void doInBackground(String... strings)
         {
@@ -200,7 +208,8 @@ public class CallActivity extends AppCompatActivity implements View.OnClickListe
 
             try
             {
-                startActivityForResult(intent, REQ_CODE_SPEECH_INPUT);
+                context.startActivity(intent);
+                //startActivityForResult(intent, REQ_CODE_SPEECH_INPUT);
             }
             catch (ActivityNotFoundException ex)
             {

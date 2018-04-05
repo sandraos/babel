@@ -1,6 +1,7 @@
 package com.example.sinchpstn;
 
 import android.Manifest;
+import android.app.Activity;
 import android.content.ActivityNotFoundException;
 import android.content.Context;
 import android.content.Intent;
@@ -184,8 +185,7 @@ public class CallActivity extends AppCompatActivity implements View.OnClickListe
                 break;
             case R.id.speakerButton:
                 //audioController.mute();
-                //new VoiceInputTask(this).execute();
-                recorder();
+                new VoiceInputTask(this).execute();
                 break;
         }
     }
@@ -209,8 +209,7 @@ public class CallActivity extends AppCompatActivity implements View.OnClickListe
 
             try
             {
-                context.startActivity(intent);
-                //startActivityForResult(intent, REQ_CODE_SPEECH_INPUT);
+                ((Activity) context).startActivityForResult(intent, REQ_CODE_SPEECH_INPUT);
             }
             catch (ActivityNotFoundException ex)
             {
@@ -218,23 +217,6 @@ public class CallActivity extends AppCompatActivity implements View.OnClickListe
             }
 
             return null;
-        }
-    }
-
-    public void recorder()
-    {
-        Intent intent = new Intent(RecognizerIntent.ACTION_RECOGNIZE_SPEECH);
-        intent.putExtra(RecognizerIntent.EXTRA_LANGUAGE_MODEL, RecognizerIntent.LANGUAGE_MODEL_FREE_FORM);
-        intent.putExtra(RecognizerIntent.EXTRA_LANGUAGE, Locale.getDefault());
-        intent.putExtra(RecognizerIntent.EXTRA_PROMPT, "Recording...");
-
-        try
-        {
-            startActivityForResult(intent, REQ_CODE_SPEECH_INPUT);
-        }
-        catch (ActivityNotFoundException ex)
-        {
-            Log.d("DEBUG - startVoiceInput", Log.getStackTraceString(ex));
         }
     }
 
